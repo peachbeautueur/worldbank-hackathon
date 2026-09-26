@@ -7,8 +7,7 @@ class Global:
     def __init__(self): 
         self.non_null_data_percentage = 100
 
-    def extract_data(self):
-        indicator_code = "NY.GDP.PCAP.PP.CD"
+    def extract_data(self, indicator_code):
         url = f"https://api.worldbank.org/v2/country/all/indicator/{indicator_code}"
         params = {"date": "2000:2026", "format": "json", "per_page": 5000}
         all_records = []
@@ -57,7 +56,7 @@ class Global:
         return data
 
     def get_non_null_data_percentage(self):
-        data = self.extract_data()
+        data = self.extract_data("NY.GDP.PCAP.PP.CD")
         total_count = len(data)
         non_null_count = data["value"].notnull().sum()
         percentage_non_null = (

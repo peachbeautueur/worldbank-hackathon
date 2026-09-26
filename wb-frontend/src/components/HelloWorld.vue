@@ -23,28 +23,37 @@ export default defineComponent({
         shapePropertyPath: 'name',
         shapeDataPath: 'Country',
         dataSource: [
-            { "Country": "China", "Membership": "Permanent", population: '38332521' },
-            { "Country": "France", "Membership": "Permanent", population: '19651127' },
-            { "Country": "Russia", "Membership": "Permanent", population: '3090416' },
-            { "Country": "Kazakhstan", "Membership": "Non-Permanent", population: '12325210' },
-            { "Country": "Poland", "Membership": "Non-Permanent", population: '90332521' },
-            { "Country": "Sweden", "Membership": "Non-Permanent", population: '383521' }
+            { "Country": "China", population: 38332521 },
+            { "Country": "France", population: 19651127 },
+            { "Country": "Russia", population: 3090416 },
+            { "Country": "Kazakhstan", population: 12325210 },
+            { "Country": "Poland", population: 90332521 },
+            { "Country": "Sweden", population: 383521 }
         ],
-        shapeSettings: {
-            colorValuePath: 'Membership',
-            colorMapping: [
-                {
-                    value: 'Permanent', color: '#D84444'
-                },
-                {
-                    value: 'Non-Permanent', color: '#316DB5'
-                }
-            ]
-        },
         tooltipSettings: {
             visible: true,
             valuePath: 'population'
         },
+    }
+  },
+  computed: {
+    shapeSettings() {
+      const populations = this.dataSource.map(country => country.population);
+      const minPopulation = Math.min(...populations);
+      const maxPopulation = Math.max(...populations);
+      const startColor = '#D84444';
+      const endColor = '#316DB5';
+
+      return {
+        colorValuePath: 'population',
+        colorMapping: [{
+          from: minPopulation,
+          to: maxPopulation,
+          color: [0, 25, 50, 75, 100].map(percent =>
+            this.interpolateColor(startColor, endColor, percent)
+          ),
+        }],
+      }
     }
   },
   methods: {
@@ -58,6 +67,29 @@ export default defineComponent({
         .catch(error => {
           console.error('Failed to get non-null data percentage:', error);
         });
+    },
+    hexFromRGB(r: number, g: number, b: number): string {
+      return "#" + [r, g, b].map((x: number) => {
+        const hex = x.toString(16).padStart(2, '0');
+        return hex;
+      }).join('');
+    },
+    interpolateColor(color1: string, color2: string, percent: number): string {
+      // Convert hex to RGB
+      const r1 = parseInt(color1.slice(1, 3), 16);
+      const g1 = parseInt(color1.slice(3, 5), 16);
+      const b1 = parseInt(color1.slice(5, 7), 16);
+
+      const r2 = parseInt(color2.slice(1, 3), 16);
+      const g2 = parseInt(color2.slice(3, 5), 16);
+      const b2 = parseInt(color2.slice(5, 7), 16);
+
+      // Interpolate
+      const r = Math.round(r1 + (r2 - r1) * (percent / 100));
+      const g = Math.round(g1 + (g2 - g1) * (percent / 100));
+      const b = Math.round(b1 + (b2 - b1) * (percent / 100));
+
+      return this.hexFromRGB(r, g, b);
     },
   },
 })
