@@ -52,18 +52,17 @@ class Global:
             f"to {csv_path}"
         )
         data
-
         if "value" not in data.columns:
             raise KeyError("Column 'value' not found in DataFrame.")
+        return data
 
+    def get_non_null_data_percentage(self):
+        data = self.extract_data()
         total_count = len(data)
         non_null_count = data["value"].notnull().sum()
         percentage_non_null = (
             (non_null_count / total_count) * 100 if total_count else 0.0
         )
         print(f"Percentage of non-null values in 'value': {percentage_non_null:.2f}%")
-        return percentage_non_null
-
-    def get_non_null_data_percentage(self):
-        self.non_null_data_percentage = self.extract_data()
-        return self.non_null_data_percentage
+        self.percentage_non_null = percentage_non_null
+        return self.percentage_non_null

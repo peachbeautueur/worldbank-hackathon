@@ -26,7 +26,7 @@ export default defineComponent({
             { "Country": "China", "Membership": "Permanent", population: '38332521' },
             { "Country": "France", "Membership": "Permanent", population: '19651127' },
             { "Country": "Russia", "Membership": "Permanent", population: '3090416' },
-            { "Country": "Kazakhstan", "Membership": "Non-Permanent", population: '1232521' },
+            { "Country": "Kazakhstan", "Membership": "Non-Permanent", population: '12325210' },
             { "Country": "Poland", "Membership": "Non-Permanent", population: '90332521' },
             { "Country": "Sweden", "Membership": "Non-Permanent", population: '383521' }
         ],
