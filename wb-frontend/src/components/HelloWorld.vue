@@ -72,7 +72,7 @@ export default defineComponent({
         :format="format"
         :useGroupingSeparator="useGroupingSeparator"
         width="100%"
-        height="1550px"
+        height="750px"
       >
           <e-layers>
               <e-layer :shapeData='shapeData' :shapePropertyPath='shapePropertyPath' :shapeDataPath='shapeDataPath' :dataSource='dataSource' :shapeSettings='shapeSettings' :tooltipSettings='tooltipSettings'></e-layer>
@@ -101,6 +101,7 @@ h3 {
 
 .wrapper {
   width: 100%;
+  max-width: none;
 }
 
 :deep(.e-map) {
