@@ -18,6 +18,7 @@ export default defineComponent({
   data() {
     return { non_null_data_percentage: 100,
       format: 'c',
+        countriesInMap: [] as string[],
         useGroupingSeparator: true,
         shapeData: world_map,
         shapePropertyPath: 'name',
@@ -28,7 +29,7 @@ export default defineComponent({
             { "Country": "Russia", population: 3090416 },
             { "Country": "Kazakhstan", population: 12325210 },
             { "Country": "Poland", population: 90332521 },
-            { "Country": "Sweden", population: 383521 }
+            { "Country": "Afghanistan", population: 383521 }
         ],
         tooltipSettings: {
             visible: true,
@@ -91,12 +92,20 @@ export default defineComponent({
 
       return this.hexFromRGB(r, g, b);
     },
+    getAllCountriesFromMap(): string[] {
+      this.countriesInMap = world_map.features.map(
+        (feature: { properties: { admin: string } }) => feature.properties.admin
+      );
+      return this.countriesInMap
+    }
   },
 })
 </script>
 
 <template>
   <div class="greetings">
+    <button @click="getAllCountriesFromMap">Get all countries as text</button>
+    <p>Countries in map: {{ countriesInMap }}</p>
     <button @click="getNonNullDataPercentage">Get Non-Null data percentage</button>
     <p>Non-Null-Data-Percentage: {{ non_null_data_percentage }}</p>
     <div class='wrapper'>
