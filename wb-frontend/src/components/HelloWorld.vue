@@ -1,17 +1,30 @@
-<script setup lang="ts">
-defineProps<{
-  msg: string
-}>()
+<script lang="ts">
+import { defineComponent } from 'vue'
+import axios from 'axios';
+export default defineComponent({
+  data() {
+    return { non_null_data_percentage: 100 };
+  },
+  methods: {
+    getNonNullDataPercentage() {
+      axios
+        .get('/api/get_non_null_data_percentage')
+        .then(response => {
+          console.log("received response")
+          this.non_null_data_percentage = response.data.non_null_data_percentage;
+        })
+        .catch(error => {
+          console.error('Failed to get non-null data percentage:', error);
+        });
+    },
+  },
+})
 </script>
 
 <template>
   <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
-    <h3>
-      You’ve successfully created a project with
-      <a href="https://vite.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
-    </h3>
+    <button @click="getNonNullDataPercentage">Get Non-Null data percentage</button>
+    <p>Non-Null-Data-Percentage: {{ non_null_data_percentage }}</p>
   </div>
 </template>
 
