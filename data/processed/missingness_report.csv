@@ -3,11 +3,14 @@ account_ownership,689,396,36.5
 account_female,663,422,38.89
 account_male,663,422,38.89
 account_poorest40,650,435,40.09
+account_richest60,650,435,40.09
 account_young,663,422,38.89
 account_older,663,422,38.89
 account_primary_education,662,423,38.99
 internet_users,967,118,10.88
 mobile_subscriptions,970,115,10.6
+atm_density,861,224,20.65
+bank_branch_density,867,218,20.09
 gdp_per_capita,1048,37,3.41
 gdp_growth,1040,45,4.15
 inflation,918,167,15.39

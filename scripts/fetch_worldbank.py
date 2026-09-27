@@ -18,12 +18,16 @@ INDICATORS = {
     "account_female": "FX.OWN.TOTL.FE.ZS",
     "account_male": "FX.OWN.TOTL.MA.ZS",
     "account_poorest40": "FX.OWN.TOTL.40.ZS",
+    "account_richest60": "FX.OWN.TOTL.60.ZS",
     "account_young": "FX.OWN.TOTL.YG.ZS",
     "account_older": "FX.OWN.TOTL.OL.ZS",
     "account_primary_education": "FX.OWN.TOTL.PL.ZS",
     # Digital access
     "internet_users": "IT.NET.USER.ZS",
     "mobile_subscriptions": "IT.CEL.SETS.P2",
+    # Physical financial access (sourced from the IMF Financial Access Survey)
+    "atm_density": "FB.ATM.TOTL.P5",
+    "bank_branch_density": "FB.CBK.BRCH.P5",
     # Economic conditions
     "gdp_per_capita": "NY.GDP.PCAP.CD",
     "gdp_growth": "NY.GDP.MKTP.KD.ZG",
@@ -128,6 +132,9 @@ def fetch_country_metadata():
         region = country.get("region") or {}
         region_id = str(region.get("id") or "").strip()
         region_name = str(region.get("value") or "").strip()
+        income_level = country.get("incomeLevel") or {}
+        income_group_code = str(income_level.get("id") or "").strip()
+        income_group = str(income_level.get("value") or "").strip()
         iso3 = str(country.get("id") or "").strip()
         name = str(country.get("name") or "").strip()
         if (
@@ -137,7 +144,16 @@ def fetch_country_metadata():
             and iso3
             and name
         ):
-            real_countries.append({"country": name, "iso3": iso3})
+            real_countries.append(
+                {
+                    "country": name,
+                    "iso3": iso3,
+                    "region_code": region_id,
+                    "region": region_name,
+                    "current_income_group_code": income_group_code,
+                    "current_income_group": income_group,
+                }
+            )
 
     if not real_countries:
         raise RuntimeError("No real countries could be identified from the metadata.")
@@ -202,7 +218,17 @@ def make_complete_country_year_grid(countries):
     countries["_join_key"] = 1
     years["_join_key"] = 1
     grid = countries.merge(years, on="_join_key").drop(columns="_join_key")
-    return grid[["country", "iso3", "year"]]
+    return grid[
+        [
+            "country",
+            "iso3",
+            "year",
+            "region_code",
+            "region",
+            "current_income_group_code",
+            "current_income_group",
+        ]
+    ]
 
 
 def create_processed_outputs(long_data, countries):
@@ -219,7 +245,9 @@ def create_processed_outputs(long_data, countries):
     long_data = long_data.sort_values(
         ["country", "year", "indicator"], ignore_index=True
     )
-    long_data.to_csv(PROCESSED_DIR / "worldbank_long.csv", index=False)
+    long_data.to_csv(
+        PROCESSED_DIR / "worldbank_indicator_observations.csv", index=False
+    )
 
     if long_data.empty:
         pivoted = pd.DataFrame(columns=["country", "iso3", "year"])
@@ -239,9 +267,18 @@ def create_processed_outputs(long_data, countries):
     value_columns = list(INDICATORS.keys())
     wide_data = grid.merge(pivoted, on=["country", "iso3", "year"], how="left")
     wide_data = wide_data.reindex(
-        columns=["country", "iso3", "year"] + value_columns
+        columns=[
+            "country",
+            "iso3",
+            "year",
+            "region_code",
+            "region",
+            "current_income_group_code",
+            "current_income_group",
+        ]
+        + value_columns
     ).sort_values(["country", "year"], ignore_index=True)
-    wide_data.to_csv(PROCESSED_DIR / "worldbank_wide.csv", index=False)
+    wide_data.to_csv(PROCESSED_DIR / "worldbank_country_year.csv", index=False)
 
     findex_data = wide_data[wide_data["year"].isin(FINDEX_YEARS)].copy()
     findex_data.to_csv(PROCESSED_DIR / "findex_years.csv", index=False)
@@ -335,8 +372,11 @@ def main():
     print(f"Number of indicators with no data: {len(no_data_indicators)}")
     if no_data_indicators:
         print("Indicators with no data: " + ", ".join(no_data_indicators))
-    print(f"Number of rows in worldbank_long.csv: {len(long_data)}")
-    print(f"Number of rows in worldbank_wide.csv: {len(wide_data)}")
+    print(
+        "Number of rows in worldbank_indicator_observations.csv: "
+        f"{len(long_data)}"
+    )
+    print(f"Number of rows in worldbank_country_year.csv: {len(wide_data)}")
     print(f"Number of rows in findex_years.csv: {len(findex_data)}")
     print("Verified that World, High income, and Low income are absent.")
 

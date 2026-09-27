@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from importlib import import_module
@@ -8,6 +9,22 @@ Global = import_module('global').Global
 app = Flask(__name__)
 CORS(app)
 global_instance = Global()
+CLUSTER_DASHBOARD_PATH = (
+    Path(__file__).resolve().parent / 'data' / 'analysis' / 'cluster_dashboard.json'
+)
+
+
+@app.route('/api/cluster-dashboard', methods=['GET'])
+def get_cluster_dashboard():
+    """Serve the reproducible country-cluster output used by the dashboard."""
+    if not CLUSTER_DASHBOARD_PATH.exists():
+        return jsonify({
+            'error': 'Cluster dashboard data has not been generated. '
+                     'Run scripts/cluster_countries.py first.'
+        }), 404
+
+    with CLUSTER_DASHBOARD_PATH.open(encoding='utf-8') as dashboard_file:
+        return jsonify(json.load(dashboard_file))
 
 @app.route('/api/get_non_null_data_percentage', methods=['GET'])
 def get_non_null_data_percentage():

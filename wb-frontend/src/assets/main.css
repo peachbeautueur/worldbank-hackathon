@@ -1,25 +1,20 @@
 @import './base.css';
 
+html,
+body,
 #app {
   width: 100%;
-  max-width: 1800px;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+#app {
+  width: 100%;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0 1rem;
   font-weight: normal;
-}
-
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
 }
 
 @media (min-width: 1024px) {
@@ -30,6 +25,14 @@ a,
   #app {
     display: block;
     width: 100%;
-    padding: 1rem 2rem;
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 680px) {
+  html,
+  body,
+  #app {
+    width: 100vw;
   }
 }
