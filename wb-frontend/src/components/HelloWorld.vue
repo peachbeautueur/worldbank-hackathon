@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import axios from 'axios';
-import { MapsComponent, MapsTooltip, LayerDirective, LayersDirective } from '@syncfusion/ej2-vue-maps';
+import { MapsComponent, MapsTooltip, Zoom, LayerDirective, LayersDirective } from '@syncfusion/ej2-vue-maps';
 import { world_map } from './world-map.js';
 import { setCulture } from '@syncfusion/ej2-base';
 setCulture('de');
@@ -33,7 +33,7 @@ export default defineComponent({
     'e-layer': LayerDirective,
   },
   provide: {
-    maps: [MapsTooltip],
+    maps: [MapsTooltip, Zoom],
   },
   data() {
     return { non_null_data_percentage: 100,
@@ -48,6 +48,17 @@ export default defineComponent({
         shapeData: world_map,
         shapePropertyPath: 'admin',
         shapeDataPath: 'Country',
+        zoomSettings: {
+          enable: true,
+          enablePanning: true,
+          enableSelectionZooming: true,
+          mouseWheelZoom: true,
+          doubleClickZoom: true,
+          pinchZooming: true,
+          zoomOnClick: true,
+          minZoom: 1,
+          maxZoom: 10,
+        },
         dataSource: [
             
         ] as MapCountryRecord[],
@@ -295,6 +306,9 @@ export default defineComponent({
     <input type="number" v-model.number="endYear" placeholder="Enter an end year" />
     <input type="text" v-model="indicator_code" placeholder="Enter an indicator code" />
     <label for="minimum-data-points-required">Minimum years of data required</label>
+    <p>Reference:</p>
+    <p>FX.OWN.TOTL.ZS: Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+)</p>
+    <p>NY.GDP.PCAP.PP.CD: GDP per capita, PPP (current international $)</p>
     <input
       id="minimum-data-points-required"
       type="number"
@@ -302,10 +316,14 @@ export default defineComponent({
       min="1"
       step="1"
     />
+    <p class="map-zoom-help">
+      Zoom with the mouse wheel, double-click, or pinch. Drag to pan; use the map zoom toolbar to select an area.
+    </p>
     <div class='wrapper'>
       <ejs-maps
         :format="format"
         :useGroupingSeparator="useGroupingSeparator"
+        :zoomSettings="zoomSettings"
         width="100%"
         height="750px"
       >
@@ -337,6 +355,12 @@ h3 {
 .wrapper {
   width: 100%;
   max-width: none;
+}
+
+.map-zoom-help {
+  margin: 0.5rem 0;
+  color: #555;
+  font-size: 0.9rem;
 }
 
 :deep(.e-map) {
