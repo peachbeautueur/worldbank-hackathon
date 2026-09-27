@@ -69,8 +69,7 @@ class Global:
 
     def get_gdp_per_capita(self, startYear, endYear):
         data = self.extract_data("NY.GDP.PCAP.PP.CD")
-        df = data[['countryiso3code,date,value']]
-        years = list(range(startYear, endYear + 1))
+        df = data[["countryiso3code", "date", "value", "country.value"]]
+        years = [str(year) for year in range(startYear, endYear + 1)]
         selectedDateRange = df[df['date'].isin(years)]
         return selectedDateRange
-

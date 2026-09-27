@@ -6,6 +6,16 @@ import { world_map } from './world-map.js';
 import { setCulture } from '@syncfusion/ej2-base';
 setCulture('de');
 
+interface GdpPerCapitaRecord {
+  'country.value': string;
+  value: number | null;
+}
+
+interface MapCountryRecord {
+  Country: string;
+  population: number | null;
+}
+
 export default defineComponent({
   components: {
     'ejs-maps': MapsComponent,
@@ -18,6 +28,9 @@ export default defineComponent({
   data() {
     return { non_null_data_percentage: 100,
       format: 'c',
+        startYear: 2016,
+        endYear: 2016,
+        countriesFromMapNoPrint: [] as string[],
         countriesInMap: [] as string[],
         useGroupingSeparator: true,
         shapeData: world_map,
@@ -30,7 +43,7 @@ export default defineComponent({
             { "Country": "Kazakhstan", population: 12325210 },
             { "Country": "Poland", population: 90332521 },
             { "Country": "Afghanistan", population: 383521 }
-        ],
+        ] as MapCountryRecord[],
         tooltipSettings: {
             visible: true,
             valuePath: 'population'
@@ -39,9 +52,11 @@ export default defineComponent({
   },
   computed: {
     shapeSettings() {
-      const populations = this.dataSource.map(country => country.population);
-      const minPopulation = Math.min(...populations);
-      const maxPopulation = Math.max(...populations);
+      const populations = this.dataSource
+        .map(country => country.population)
+        .filter((population): population is number => population !== null);
+      const minPopulation = populations.length ? Math.min(...populations) : 0;
+      const maxPopulation = populations.length ? Math.max(...populations) : 0;
       const startColor = '#D84444';
       const endColor = '#316DB5';
 
@@ -98,12 +113,46 @@ export default defineComponent({
       );
       return this.countriesInMap
     },
-    getGdpPerCapita() {
+    getAllCountriesFromMapNoPrint(): string[] {
+      this.countriesFromMapNoPrint = world_map.features.map(
+        (feature: { properties: { admin: string } }) => feature.properties.admin
+      );
+      return this.countriesFromMapNoPrint
+    },
+    getGdpPerCapita(startYear: number, endYear: number): void {
       axios
-        .get('/api/get_gdp_per_capita')
+        .get<{ gdp_per_capita: GdpPerCapitaRecord[] }>(
+          '/api/get_gdp_per_capita',
+          { params: { startYear, endYear } },
+        )
         .then(response => {
-          console.log("received response")
-          this.dataSource = response.data.gdp_per_capita;
+          const mapCountries = this.getAllCountriesFromMapNoPrint();
+          const mapCountrySet = new Set(mapCountries);
+          const records = response.data.gdp_per_capita;
+          const countriesWithData = new Set(
+            records
+              .filter(
+                (record): record is GdpPerCapitaRecord & { value: number } =>
+                  record.value !== null && Number.isFinite(record.value),
+              )
+              .map(record => record['country.value'])
+              .filter(country => mapCountrySet.has(country)),
+          );
+          const countriesMissingData = mapCountries.filter(
+            country => !countriesWithData.has(country),
+          );
+
+          console.log(
+            `Nations missing GDP-per-capita data for ${startYear}-${endYear}:`,
+            countriesMissingData,
+          );
+
+          this.dataSource = records
+            .filter(record => mapCountrySet.has(record['country.value']))
+            .map(record => ({
+              Country: record['country.value'],
+              population: record.value,
+            }));
         })
         .catch(error => {
           console.error('Failed to get non-null data percentage:', error);
@@ -119,9 +168,9 @@ export default defineComponent({
     <p>Countries in map: {{ countriesInMap }}</p>
     <button @click="getNonNullDataPercentage">Get Non-Null data percentage</button>
     <p>Non-Null-Data-Percentage: {{ non_null_data_percentage }}</p>
-    <button @click="getGdpPerCapita">Get GDP-per-capita</button>
-    <input v-model="startYear" placeholder="Enter a start year" />
-    <input v-model="endYear" placeholder="Enter a end year" />
+    <button @click="getGdpPerCapita(startYear, endYear)">Get GDP-per-capita</button>
+    <input type="number" v-model.number="startYear" placeholder="Enter a start year" />
+    <input type="number" v-model.number="endYear" placeholder="Enter an end year" />
     <div class='wrapper'>
       <ejs-maps
         :format="format"
