@@ -1,3 +1,4 @@
+import math
 from pathlib import Path
 
 import pandas as pd
@@ -72,4 +73,57 @@ class Global:
         df = data[["countryiso3code", "date", "value", "country.value"]]
         years = [str(year) for year in range(startYear, endYear + 1)]
         selectedDateRange = df[df['date'].isin(years)]
-        return selectedDateRange
+
+        return (
+            selectedDateRange.groupby("countryiso3code", as_index=False)
+            .agg({"value": "mean", "country.value": "first"})
+        )
+
+    def get_gdp_per_capita_growth_trend(self, startYear, endYear):
+        data = self.extract_data("NY.GDP.PCAP.PP.CD")
+        df = data[["countryiso3code", "date", "value", "country.value"]]
+        years = [str(year) for year in range(startYear, endYear + 1)]
+        selectedDateRange = df[df['date'].isin(years)]
+
+        trends = []
+        for country_code, country_data in selectedDateRange.groupby(
+            "countryiso3code", sort=False
+        ):
+            valid_data = country_data.loc[
+                country_data["value"].notna() & (country_data["value"] > 0)
+            ]
+            year_values = [int(year) for year in valid_data["date"]]
+            log_gdp_values = [
+                math.log(float(value)) for value in valid_data["value"]
+            ]
+
+            annualized_growth_percent = float("nan")
+            if len(year_values) >= 2:
+                mean_year = sum(year_values) / len(year_values)
+                mean_log_gdp = sum(log_gdp_values) / len(log_gdp_values)
+                year_variance = sum(
+                    (year - mean_year) ** 2 for year in year_values
+                )
+                if year_variance > 0:
+                    slope = sum(
+                        (year - mean_year) * (log_gdp - mean_log_gdp)
+                        for year, log_gdp in zip(year_values, log_gdp_values)
+                    ) / year_variance
+                    annualized_growth_percent = math.expm1(slope) * 100
+
+            trends.append(
+                {
+                    "countryiso3code": country_code,
+                    "country.value": country_data["country.value"].iloc[0],
+                    "growth_trend_percent_per_year": annualized_growth_percent,
+                }
+            )
+
+        return pd.DataFrame.from_records(
+            trends,
+            columns=[
+                "countryiso3code",
+                "country.value",
+                "growth_trend_percent_per_year",
+            ],
+        )

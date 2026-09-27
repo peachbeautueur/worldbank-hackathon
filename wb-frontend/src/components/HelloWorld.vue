@@ -11,6 +11,11 @@ interface GdpPerCapitaRecord {
   value: number | null;
 }
 
+interface GdpPerCapitaGrowthTrendRecord {
+  'country.value': string;
+  growth_trend_percent_per_year: number | null;
+}
+
 interface MapCountryRecord {
   Country: string;
   population: number | null;
@@ -27,14 +32,14 @@ export default defineComponent({
   },
   data() {
     return { non_null_data_percentage: 100,
-      format: 'c',
+      format: 'n',
         startYear: 2016,
         endYear: 2016,
         countriesFromMapNoPrint: [] as string[],
         countriesInMap: [] as string[],
         useGroupingSeparator: true,
         shapeData: world_map,
-        shapePropertyPath: 'name',
+        shapePropertyPath: 'admin',
         shapeDataPath: 'Country',
         dataSource: [
             { "Country": "China", population: 38332521 },
@@ -155,9 +160,51 @@ export default defineComponent({
             }));
         })
         .catch(error => {
-          console.error('Failed to get non-null data percentage:', error);
+          console.error('Failed to get GDP-per-capita data:', error);
         });
-    }
+    },
+    getGdpPerCapitaGrowthTrend(startYear: number, endYear: number): void {
+      axios
+        .get<{ gdp_per_capita_growth_trend: GdpPerCapitaGrowthTrendRecord[] }>(
+          '/api/get_gdp_per_capita_growth_trend',
+          { params: { startYear, endYear } },
+        )
+        .then(response => {
+          const mapCountries = this.getAllCountriesFromMapNoPrint();
+          const mapCountrySet = new Set(mapCountries);
+          const records = response.data.gdp_per_capita_growth_trend;
+          const countriesWithData = new Set(
+            records
+              .filter(
+                (record): record is GdpPerCapitaGrowthTrendRecord & {
+                  growth_trend_percent_per_year: number;
+                } =>
+                  record.growth_trend_percent_per_year !== null &&
+                  Number.isFinite(record.growth_trend_percent_per_year),
+              )
+              .map(record => record['country.value'])
+              .filter(country => mapCountrySet.has(country)),
+          );
+          const countriesMissingData = mapCountries.filter(
+            country => !countriesWithData.has(country),
+          );
+
+          console.log(
+            `Nations missing GDP-per-capita data for ${startYear}-${endYear}:`,
+            countriesMissingData,
+          );
+
+          this.dataSource = records
+            .filter(record => mapCountrySet.has(record['country.value']))
+            .map(record => ({
+              Country: record['country.value'],
+              population: record.growth_trend_percent_per_year,
+            }));
+        })
+        .catch(error => {
+          console.error('Failed to get GDP-per-capita data:', error);
+        });
+    },
   },
 })
 </script>
@@ -168,7 +215,8 @@ export default defineComponent({
     <p>Countries in map: {{ countriesInMap }}</p>
     <button @click="getNonNullDataPercentage">Get Non-Null data percentage</button>
     <p>Non-Null-Data-Percentage: {{ non_null_data_percentage }}</p>
-    <button @click="getGdpPerCapita(startYear, endYear)">Get GDP-per-capita</button>
+    <button @click="getGdpPerCapita(startYear, endYear)">Get Mean GDP-per-capita</button>
+    <button @click="getGdpPerCapitaGrowthTrend(startYear, endYear)">Get Annualized GDP-per-capita growth</button>
     <input type="number" v-model.number="startYear" placeholder="Enter a start year" />
     <input type="number" v-model.number="endYear" placeholder="Enter an end year" />
     <div class='wrapper'>
