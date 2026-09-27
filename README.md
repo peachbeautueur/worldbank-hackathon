@@ -153,3 +153,19 @@ worldbank-hackathon/
 │   └── analysis/                  # Cluster outputs for the dashboard
 └── wb-frontend/                   # Vue and TypeScript frontend
 ```
+
+## Data sources and licensing
+
+Data were retrieved through the World Bank Indicators API and include indicators from World Bank Open Data, the Global Findex Database, and the IMF Financial Access Survey.
+
+World Bank produced open datasets are generally distributed under the [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by/4.0/), subject to the [World Bank Data Access and Licensing terms](https://datacatalog.worldbank.org/public-licenses) and any dataset specific terms.
+
+Suggested attribution:
+
+> Source: World Bank Open Data, Global Findex Database, and World Development Indicators, accessed through the World Bank Indicators API. Data were processed and transformed by the project authors.
+
+Some indicators, including ATM and commercial bank branch density, originate from the IMF Financial Access Survey and may be subject to source specific terms.
+
+This project is independent and is not endorsed by or affiliated with the World Bank Group or the International Monetary Fund. World Bank and IMF names and logos must not be used to imply endorsement.
+
+Third party software remains subject to its respective licenses. No license has yet been specified for the original source code in this repository.
