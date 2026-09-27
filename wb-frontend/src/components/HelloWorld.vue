@@ -1,7 +1,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import axios from 'axios';
-import { MapsComponent, MapsTooltip, Zoom, LayerDirective, LayersDirective } from '@syncfusion/ej2-vue-maps';
+import {
+  MapsComponent,
+  MapsTooltip,
+  Zoom,
+  LayerDirective,
+  LayersDirective,
+} from '@syncfusion/ej2-vue-maps';
 import { world_map } from './world-map.js';
 import { setCulture } from '@syncfusion/ej2-base';
 setCulture('de');
@@ -64,7 +70,7 @@ export default defineComponent({
         ] as MapCountryRecord[],
         tooltipSettings: {
             visible: true,
-            valuePath: 'population'
+            format: '${Country}: ${population}',
         },
     }
   },
@@ -171,7 +177,12 @@ export default defineComponent({
           );
 
           this.dataSource = records
-            .filter(record => mapCountrySet.has(record['country.value']))
+            .filter(
+              record =>
+                mapCountrySet.has(record['country.value']) &&
+                record.value !== null &&
+                Number.isFinite(record.value),
+            )
             .map(record => ({
               Country: record['country.value'],
               population: record.value,
@@ -223,7 +234,12 @@ export default defineComponent({
           );
 
           this.dataSource = records
-            .filter(record => mapCountrySet.has(record['country.value']))
+            .filter(
+              record =>
+                mapCountrySet.has(record['country.value']) &&
+                record.growth_trend_percent_per_year !== null &&
+                Number.isFinite(record.growth_trend_percent_per_year),
+            )
             .map(record => ({
               Country: record['country.value'],
               population: record.growth_trend_percent_per_year,
@@ -274,7 +290,12 @@ export default defineComponent({
           );
 
           this.dataSource = records
-            .filter(record => mapCountrySet.has(record['country.value']))
+            .filter(
+              record =>
+                mapCountrySet.has(record['country.value']) &&
+                record.growth_additive !== null &&
+                Number.isFinite(record.growth_additive),
+            )
             .map(record => ({
               Country: record['country.value'],
               population: record.growth_additive,
