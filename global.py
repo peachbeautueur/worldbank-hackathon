@@ -69,9 +69,9 @@ class Global:
         return self.percentage_non_null
 
     def get_gdp_per_capita(
-        self, startYear, endYear, minimum_data_points_required
+        self, startYear, endYear, minimum_data_points_required, indicator_code
     ):
-        data = self.extract_data("NY.GDP.PCAP.PP.CD")
+        data = self.extract_data(indicator_code)
         df = data[["countryiso3code", "date", "value", "country.value"]]
         years = [str(year) for year in range(startYear, endYear + 1)]
         selectedDateRange = df[df['date'].isin(years)]
@@ -90,9 +90,9 @@ class Global:
         ].drop(columns="data_points")
 
     def get_gdp_per_capita_growth_trend(
-        self, startYear, endYear, minimum_data_points_required
+        self, startYear, endYear, minimum_data_points_required, indicator_code
     ):
-        data = self.extract_data("NY.GDP.PCAP.PP.CD")
+        data = self.extract_data(indicator_code)
         df = data[["countryiso3code", "date", "value", "country.value"]]
         years = [str(year) for year in range(startYear, endYear + 1)]
         selectedDateRange = df[df['date'].isin(years)]

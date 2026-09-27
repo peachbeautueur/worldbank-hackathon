@@ -35,6 +35,7 @@ export default defineComponent({
       format: 'n',
         startYear: 2016,
         endYear: 2016,
+        indicator_code: "NY.GDP.PCAP.PP.CD",
         minimumDataPointsRequired: 3,
         countriesFromMapNoPrint: [] as string[],
         countriesInMap: [] as string[],
@@ -129,11 +130,12 @@ export default defineComponent({
       startYear: number,
       endYear: number,
       minimumDataPointsRequired: number,
+      indicator_code: string,
     ): void {
       axios
         .get<{ gdp_per_capita: GdpPerCapitaRecord[] }>(
           '/api/get_gdp_per_capita',
-          { params: { startYear, endYear, minimumDataPointsRequired } },
+          { params: { startYear, endYear, minimumDataPointsRequired, indicator_code } },
         )
         .then(response => {
           const mapCountries = this.getAllCountriesFromMapNoPrint();
@@ -165,18 +167,24 @@ export default defineComponent({
             }));
         })
         .catch(error => {
-          console.error('Failed to get GDP-per-capita data:', error);
+          console.error(
+            'Failed to get GDP-per-capita data:',
+            axios.isAxiosError(error)
+              ? error.response?.data ?? error.message
+              : error,
+          );
         });
     },
     getGdpPerCapitaGrowthTrend(
       startYear: number,
       endYear: number,
       minimumDataPointsRequired: number,
+      indicator_code: string,
     ): void {
       axios
         .get<{ gdp_per_capita_growth_trend: GdpPerCapitaGrowthTrendRecord[] }>(
           '/api/get_gdp_per_capita_growth_trend',
-          { params: { startYear, endYear, minimumDataPointsRequired } },
+          { params: { startYear, endYear, minimumDataPointsRequired, indicator_code } },
         )
         .then(response => {
           const mapCountries = this.getAllCountriesFromMapNoPrint();
@@ -211,7 +219,12 @@ export default defineComponent({
             }));
         })
         .catch(error => {
-          console.error('Failed to get GDP-per-capita data:', error);
+          console.error(
+            'Failed to get GDP-per-capita growth trend:',
+            axios.isAxiosError(error)
+              ? error.response?.data ?? error.message
+              : error,
+          );
         });
     },
   },
@@ -224,16 +237,17 @@ export default defineComponent({
     <p>Countries in map: {{ countriesInMap }}</p>
     <button @click="getNonNullDataPercentage">Get Non-Null data percentage</button>
     <p>Non-Null-Data-Percentage: {{ non_null_data_percentage }}</p>
-    <button @click="getGdpPerCapita(startYear, endYear, minimumDataPointsRequired)">Get Mean GDP-per-capita</button>
-    <button @click="getGdpPerCapitaGrowthTrend(startYear, endYear, minimumDataPointsRequired)">Get Annualized GDP-per-capita growth</button>
+    <button @click="getGdpPerCapita(startYear, endYear, minimumDataPointsRequired, indicator_code)">Get Metric</button>
+    <button @click="getGdpPerCapitaGrowthTrend(startYear, endYear, minimumDataPointsRequired, indicator_code)">Get Annualized Metric Growth</button>
     <input type="number" v-model.number="startYear" placeholder="Enter a start year" />
     <input type="number" v-model.number="endYear" placeholder="Enter an end year" />
+    <input type="text" v-model="indicator_code" placeholder="Enter an indicator code" />
     <label for="minimum-data-points-required">Minimum years of data required</label>
     <input
       id="minimum-data-points-required"
       type="number"
       v-model.number="minimumDataPointsRequired"
-      min="2"
+      min="1"
       step="1"
     />
     <div class='wrapper'>
