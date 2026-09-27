@@ -17,9 +17,20 @@ def get_non_null_data_percentage():
 def get_gdp_per_capita():
     start_year = request.args.get('startYear', 2016, type=int)
     end_year = request.args.get('endYear', 2016, type=int)
+    minimum_data_points_raw = request.args.get(
+        'minimumDataPointsRequired', '3'
+    )
+    try:
+        minimum_data_points_required = int(minimum_data_points_raw)
+    except ValueError:
+        return jsonify({'error': 'minimumDataPointsRequired must be an integer'}), 400
     if start_year > end_year:
         return jsonify({'error': 'startYear must be less than or equal to endYear'}), 400
-    data = global_instance.get_gdp_per_capita(start_year, end_year)
+    if minimum_data_points_required < 2:
+        return jsonify({'error': 'minimumDataPointsRequired must be at least 2'}), 400
+    data = global_instance.get_gdp_per_capita(
+        start_year, end_year, minimum_data_points_required
+    )
     records = json.loads(data.to_json(orient='records'))
     return jsonify({'gdp_per_capita': records})
 
@@ -27,9 +38,20 @@ def get_gdp_per_capita():
 def get_gdp_per_capita_growth_trend():
     start_year = request.args.get('startYear', 2016, type=int)
     end_year = request.args.get('endYear', 2016, type=int)
+    minimum_data_points_raw = request.args.get(
+        'minimumDataPointsRequired', '3'
+    )
+    try:
+        minimum_data_points_required = int(minimum_data_points_raw)
+    except ValueError:
+        return jsonify({'error': 'minimumDataPointsRequired must be an integer'}), 400
     if start_year > end_year:
         return jsonify({'error': 'startYear must be less than or equal to endYear'}), 400
-    data = global_instance.get_gdp_per_capita_growth_trend(start_year, end_year)
+    if minimum_data_points_required < 2:
+        return jsonify({'error': 'minimumDataPointsRequired must be at least 2'}), 400
+    data = global_instance.get_gdp_per_capita_growth_trend(
+        start_year, end_year, minimum_data_points_required
+    )
     records = json.loads(data.to_json(orient='records'))
     return jsonify({'gdp_per_capita_growth_trend': records})
 

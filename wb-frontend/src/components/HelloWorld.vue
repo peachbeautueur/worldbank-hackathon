@@ -35,6 +35,7 @@ export default defineComponent({
       format: 'n',
         startYear: 2016,
         endYear: 2016,
+        minimumDataPointsRequired: 3,
         countriesFromMapNoPrint: [] as string[],
         countriesInMap: [] as string[],
         useGroupingSeparator: true,
@@ -124,11 +125,15 @@ export default defineComponent({
       );
       return this.countriesFromMapNoPrint
     },
-    getGdpPerCapita(startYear: number, endYear: number): void {
+    getGdpPerCapita(
+      startYear: number,
+      endYear: number,
+      minimumDataPointsRequired: number,
+    ): void {
       axios
         .get<{ gdp_per_capita: GdpPerCapitaRecord[] }>(
           '/api/get_gdp_per_capita',
-          { params: { startYear, endYear } },
+          { params: { startYear, endYear, minimumDataPointsRequired } },
         )
         .then(response => {
           const mapCountries = this.getAllCountriesFromMapNoPrint();
@@ -163,11 +168,15 @@ export default defineComponent({
           console.error('Failed to get GDP-per-capita data:', error);
         });
     },
-    getGdpPerCapitaGrowthTrend(startYear: number, endYear: number): void {
+    getGdpPerCapitaGrowthTrend(
+      startYear: number,
+      endYear: number,
+      minimumDataPointsRequired: number,
+    ): void {
       axios
         .get<{ gdp_per_capita_growth_trend: GdpPerCapitaGrowthTrendRecord[] }>(
           '/api/get_gdp_per_capita_growth_trend',
-          { params: { startYear, endYear } },
+          { params: { startYear, endYear, minimumDataPointsRequired } },
         )
         .then(response => {
           const mapCountries = this.getAllCountriesFromMapNoPrint();
@@ -215,10 +224,18 @@ export default defineComponent({
     <p>Countries in map: {{ countriesInMap }}</p>
     <button @click="getNonNullDataPercentage">Get Non-Null data percentage</button>
     <p>Non-Null-Data-Percentage: {{ non_null_data_percentage }}</p>
-    <button @click="getGdpPerCapita(startYear, endYear)">Get Mean GDP-per-capita</button>
-    <button @click="getGdpPerCapitaGrowthTrend(startYear, endYear)">Get Annualized GDP-per-capita growth</button>
+    <button @click="getGdpPerCapita(startYear, endYear, minimumDataPointsRequired)">Get Mean GDP-per-capita</button>
+    <button @click="getGdpPerCapitaGrowthTrend(startYear, endYear, minimumDataPointsRequired)">Get Annualized GDP-per-capita growth</button>
     <input type="number" v-model.number="startYear" placeholder="Enter a start year" />
     <input type="number" v-model.number="endYear" placeholder="Enter an end year" />
+    <label for="minimum-data-points-required">Minimum years of data required</label>
+    <input
+      id="minimum-data-points-required"
+      type="number"
+      v-model.number="minimumDataPointsRequired"
+      min="2"
+      step="1"
+    />
     <div class='wrapper'>
       <ejs-maps
         :format="format"

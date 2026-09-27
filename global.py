@@ -68,18 +68,30 @@ class Global:
         self.percentage_non_null = percentage_non_null
         return self.percentage_non_null
 
-    def get_gdp_per_capita(self, startYear, endYear):
+    def get_gdp_per_capita(
+        self, startYear, endYear, minimum_data_points_required
+    ):
         data = self.extract_data("NY.GDP.PCAP.PP.CD")
         df = data[["countryiso3code", "date", "value", "country.value"]]
         years = [str(year) for year in range(startYear, endYear + 1)]
         selectedDateRange = df[df['date'].isin(years)]
 
-        return (
+        aggregated_data = (
             selectedDateRange.groupby("countryiso3code", as_index=False)
-            .agg({"value": "mean", "country.value": "first"})
+            .agg(
+                value=("value", "mean"),
+                data_points=("value", "count"),
+                country_value=("country.value", "first"),
+            )
+            .rename(columns={"country_value": "country.value"})
         )
+        return aggregated_data.loc[
+            aggregated_data["data_points"] >= minimum_data_points_required
+        ].drop(columns="data_points")
 
-    def get_gdp_per_capita_growth_trend(self, startYear, endYear):
+    def get_gdp_per_capita_growth_trend(
+        self, startYear, endYear, minimum_data_points_required
+    ):
         data = self.extract_data("NY.GDP.PCAP.PP.CD")
         df = data[["countryiso3code", "date", "value", "country.value"]]
         years = [str(year) for year in range(startYear, endYear + 1)]
@@ -98,7 +110,7 @@ class Global:
             ]
 
             annualized_growth_percent = float("nan")
-            if len(year_values) >= 2:
+            if len(year_values) >= minimum_data_points_required:
                 mean_year = sum(year_values) / len(year_values)
                 mean_log_gdp = sum(log_gdp_values) / len(log_gdp_values)
                 year_variance = sum(
