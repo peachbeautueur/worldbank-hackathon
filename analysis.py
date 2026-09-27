@@ -5,15 +5,15 @@ import pandas as pd
 
 ##indicator_code = "SH.XPD.GHED.PC.CD"
 ##indicator_code = "SH.XPD.GHED.PP.CD"
-indicator_code = "NY.GDP.PCAP.PP.CD"
+indicator_code = "FX.OWN.TOTL.ZS"
 url = f"https://api.worldbank.org/v2/country/all/indicator/{indicator_code}"
-params = {"date": "2000:2026", "format": "json", "per_page": 5000}
+params = {"date": "2012:2012", "format": "json", "per_page": 5000}
 all_records = []
 total_pages = 1
 expected_records = 0
 page = 1
 ##csvName = "inputGovernmentHealthCareSpendPerCapita.csv"
-csvName = "outputGDPPerCapitaPPP.csv"
+csvName = "accountOwnership2012.csv"
 
 with requests.Session() as session:
     while page <= total_pages:

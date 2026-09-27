@@ -1,0 +1,266 @@
+countryiso3code,date,value,unit,obs_status,decimal,indicator.id,indicator.value,country.id,country.value
+AFE,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),ZH,Africa Eastern and Southern
+AFW,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),ZI,Africa Western and Central
+ARB,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),1A,Arab World
+CSS,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),S3,Caribbean small states
+CEB,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),B8,Central Europe and the Baltics
+EAR,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),V2,Early-demographic dividend
+EAS,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),Z4,East Asia & Pacific
+EAP,2024,83.3432660109167,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),4E,East Asia & Pacific (excluding high income)
+TEA,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),T4,East Asia & Pacific (IDA & IBRD countries)
+EMU,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),XC,Euro area
+ECS,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),Z7,Europe & Central Asia
+ECA,2024,77.8490635157756,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),7E,Europe & Central Asia (excluding high income)
+TEC,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),T7,Europe & Central Asia (IDA & IBRD countries)
+EUU,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),EU,European Union
+HPC,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),XE,Heavily indebted poor countries (HIPC)
+,2024,94.9131386570532,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),XD,High income
+IBD,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),XF,IBRD only
+IBT,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),ZT,IDA & IBRD total
+IDB,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),XH,IDA blend
+IDX,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),XI,IDA only
+IDA,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),XG,IDA total
+LTE,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),V3,Late-demographic dividend
+LCN,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),ZJ,Latin America & Caribbean
+LAC,2024,69.7191455453149,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),XJ,Latin America & Caribbean (excluding high income)
+TLA,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),T2,Latin America & the Caribbean (IDA & IBRD countries)
+LDC,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),XL,Least developed countries: UN classification
+LMY,2024,75.4463783026968,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),XO,Low & middle income
+,2024,46.4432333139003,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),XM,Low income
+,2024,70.3871703678925,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),XN,Lower middle income
+MEA,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),ZQ,"Middle East, North Africa, Afghanistan & Pakistan"
+MNA,2024,52.9089186737193,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),XQ,"Middle East, North Africa, Afghanistan & Pakistan (excluding high income)"
+TMN,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),T3,"Middle East, North Africa, Afghanistan & Pakistan (IDA & IBRD)"
+MIC,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),XP,Middle income
+NAC,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),XU,North America
+,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),XY,Not classified
+OED,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),OE,OECD members
+OSS,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),S4,Other small states
+PSS,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),S2,Pacific island small states
+PST,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),V4,Post-demographic dividend
+PRE,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),V1,Pre-demographic dividend
+SST,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),S1,Small states
+SAS,2024,77.5683155337322,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),8S,South Asia
+TSA,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),T5,South Asia (IDA & IBRD)
+SSF,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),ZG,Sub-Saharan Africa
+SSA,2024,58.1823874986208,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),ZF,Sub-Saharan Africa (excluding high income)
+TSS,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),T6,Sub-Saharan Africa (IDA & IBRD countries)
+,2024,84.0421009201321,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),XT,Upper middle income
+WLD,2024,78.7424041479406,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),1W,World
+AFG,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),AF,Afghanistan
+ALB,2024,46.069250627042,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),AL,Albania
+DZA,2024,35.2901069097173,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),DZ,Algeria
+ASM,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),AS,American Samoa
+AND,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),AD,Andorra
+AGO,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),AO,Angola
+ATG,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),AG,Antigua and Barbuda
+ARG,2024,81.7442446865007,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),AR,Argentina
+ARM,2024,71.3734734683257,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),AM,Armenia
+ABW,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),AW,Aruba
+AUS,2024,98.0103778290099,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),AU,Australia
+AUT,2024,99.5084974640411,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),AT,Austria
+AZE,2024,56.3046655573957,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),AZ,Azerbaijan
+BHS,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),BS,"Bahamas, The"
+BHR,2024,82.3220521049445,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),BH,Bahrain
+BGD,2024,43.2839733431322,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),BD,Bangladesh
+BRB,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),BB,Barbados
+BLR,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),BY,Belarus
+BEL,2024,98.2369093220798,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),BE,Belgium
+BLZ,2024,67.9682001512007,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),BZ,Belize
+BEN,2024,51.8432060403598,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),BJ,Benin
+BMU,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),BM,Bermuda
+BTN,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),BT,Bhutan
+BOL,2024,56.849052664469,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),BO,Bolivia
+BIH,2024,77.4588922946912,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),BA,Bosnia and Herzegovina
+BWA,2024,61.4384690565565,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),BW,Botswana
+BRA,2024,86.3811782311541,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),BR,Brazil
+VGB,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),VG,British Virgin Islands
+BRN,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),BN,Brunei Darussalam
+BGR,2024,84.7243949771558,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),BG,Bulgaria
+BFA,2024,51.4274911911242,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),BF,Burkina Faso
+BDI,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),BI,Burundi
+CPV,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),CV,Cabo Verde
+KHM,2024,39.0314428535,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),KH,Cambodia
+CMR,2024,60.8737908565624,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),CM,Cameroon
+CAN,2024,98.4047126063262,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),CA,Canada
+CYM,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),KY,Cayman Islands
+CAF,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),CF,Central African Republic
+TCD,2024,20.8983599359361,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),TD,Chad
+CHI,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),JG,Channel Islands
+CHL,2024,85.0691778196127,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),CL,Chile
+CHN,2024,89.3830319754266,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),CN,China
+COL,2024,57.0594856281374,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),CO,Colombia
+COM,2024,45.4593974142566,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),KM,Comoros
+COD,2024,39.2140115142227,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),CD,"Congo, Dem. Rep."
+COG,2024,55.5760387811851,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),CG,"Congo, Rep."
+CRI,2024,71.3527070793642,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),CR,Costa Rica
+CIV,2024,57.5676269730853,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),CI,Cote d'Ivoire
+HRV,2024,92.6404988027313,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),HR,Croatia
+CUB,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),CU,Cuba
+CUW,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),CW,Curacao
+CYP,2024,96.1259312935907,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),CY,Cyprus
+CZE,2024,92.2832885462025,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),CZ,Czechia
+DNK,2024,98.6505141065248,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),DK,Denmark
+DJI,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),DJ,Djibouti
+DMA,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),DM,Dominica
+DOM,2024,64.777963876998,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),DO,Dominican Republic
+ECU,2024,64.5052103870577,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),EC,Ecuador
+EGY,2024,43.1134368034247,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),EG,"Egypt, Arab Rep."
+SLV,2024,43.4036648969414,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),SV,El Salvador
+GNQ,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),GQ,Equatorial Guinea
+ERI,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),ER,Eritrea
+EST,2024,98.9011091256392,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),EE,Estonia
+SWZ,2024,65.1160267166079,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),SZ,Eswatini
+ETH,2024,48.8302767819942,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),ET,Ethiopia
+FRO,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),FO,Faroe Islands
+FJI,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),FJ,Fiji
+FIN,2024,99.842681813058,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),FI,Finland
+FRA,2024,99.1902372350206,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),FR,France
+PYF,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),PF,French Polynesia
+GAB,2024,68.1812562934141,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),GA,Gabon
+GMB,2024,38.1609042069027,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),GM,"Gambia, The"
+GEO,2024,78.8236410959339,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),GE,Georgia
+DEU,2024,98.2983235670699,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),DE,Germany
+GHA,2024,81.2430252454858,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),GH,Ghana
+GIB,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),GI,Gibraltar
+GRC,2024,88.5519759112244,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),GR,Greece
+GRL,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),GL,Greenland
+GRD,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),GD,Grenada
+GUM,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),GU,Guam
+GTM,2024,38.2819483827324,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),GT,Guatemala
+GIN,2024,36.0480250155865,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),GN,Guinea
+GNB,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),GW,Guinea-Bissau
+GUY,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),GY,Guyana
+HTI,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),HT,Haiti
+HND,2024,42.4429707366343,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),HN,Honduras
+HKG,2024,97.3080247282368,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),HK,"Hong Kong SAR, China"
+HUN,2024,86.9605630769545,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),HU,Hungary
+ISL,2024,99.8548358099717,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),IS,Iceland
+IND,2024,89.0248224502547,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),IN,India
+IDN,2024,56.3278493718021,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),ID,Indonesia
+IRN,2024,91.0610044635676,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),IR,"Iran, Islamic Rep."
+IRQ,2024,30.1610517779513,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),IQ,Iraq
+IRL,2024,98.2929182250875,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),IE,Ireland
+IMN,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),IM,Isle of Man
+ISR,2024,89.2691974119826,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),IL,Israel
+ITA,2024,86.0191093278992,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),IT,Italy
+JAM,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),JM,Jamaica
+JPN,2024,98.5235592091779,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),JP,Japan
+JOR,2024,46.4573138115455,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),JO,Jordan
+KAZ,2024,87.0486447464415,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),KZ,Kazakhstan
+KEN,2024,90.1199173733613,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),KE,Kenya
+KIR,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),KI,Kiribati
+PRK,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),KP,"Korea, Dem. People's Rep."
+KOR,2024,96.8949448884961,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),KR,"Korea, Rep."
+XKX,2024,64.1617721717113,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),XK,Kosovo
+KWT,2024,74.4578561430281,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),KW,Kuwait
+KGZ,2024,72.2642375946654,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),KG,Kyrgyz Republic
+LAO,2024,37.6501969468659,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),LA,Lao PDR
+LVA,2024,94.9733099977296,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),LV,Latvia
+LBN,2024,23.0438575680739,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),LB,Lebanon
+LSO,2024,61.5710444951092,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),LS,Lesotho
+LBR,2024,52.2139331485699,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),LR,Liberia
+LBY,2024,33.1190908215163,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),LY,Libya
+LIE,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),LI,Liechtenstein
+LTU,2024,98.9947155941499,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),LT,Lithuania
+LUX,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),LU,Luxembourg
+MAC,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),MO,"Macao SAR, China"
+MDG,2024,24.4501397197571,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),MG,Madagascar
+MWI,2024,50.3696725002439,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),MW,Malawi
+MYS,2024,88.6918012421116,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),MY,Malaysia
+MDV,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),MV,Maldives
+MLI,2024,54.7454806007539,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),ML,Mali
+MLT,2024,96.5581295334766,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),MT,Malta
+MHL,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),MH,Marshall Islands
+MRT,2024,27.3142609920985,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),MR,Mauritania
+MUS,2024,89.5984480347546,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),MU,Mauritius
+MEX,2024,53.0320833316729,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),MX,Mexico
+FSM,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),FM,"Micronesia, Fed. Sts."
+MDA,2024,55.544249263449,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),MD,Moldova
+MCO,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),MC,Monaco
+MNG,2024,98.2787007982729,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),MN,Mongolia
+MNE,2024,75.4116297013886,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),ME,Montenegro
+MAR,2024,44.3863291468524,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),MA,Morocco
+MOZ,2024,54.38528750107,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),MZ,Mozambique
+MMR,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),MM,Myanmar
+NAM,2024,72.9187672893525,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),NA,Namibia
+NRU,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),NR,Naoero
+NPL,2024,59.9911157064883,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),NP,Nepal
+NLD,2024,99.171512250031,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),NL,Netherlands
+NCL,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),NC,New Caledonia
+NZL,2024,97.8647563722742,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),NZ,New Zealand
+NIC,2024,23.470592686629,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),NI,Nicaragua
+NER,2024,14.8268991865027,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),NE,Niger
+NGA,2024,63.2613514491542,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),NG,Nigeria
+MKD,2024,84.2548648905347,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),MK,North Macedonia
+MNP,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),MP,Northern Mariana Islands
+NOR,2024,98.5561571037813,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),NO,Norway
+OMN,2024,69.5361597212358,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),OM,Oman
+PAK,2024,27.2960071761925,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),PK,Pakistan
+PLW,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),PW,Palau
+PAN,2024,64.0952131164981,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),PA,Panama
+PNG,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),PG,Papua New Guinea
+PRY,2024,60.9167610080401,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),PY,Paraguay
+PER,2024,59.3098978248017,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),PE,Peru
+PHL,2024,50.1824221429254,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),PH,Philippines
+POL,2024,86.1367117566539,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),PL,Poland
+PRT,2024,91.3973440748621,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),PT,Portugal
+PRI,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),PR,Puerto Rico (US)
+QAT,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),QA,Qatar
+ROU,2024,71.3366719002898,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),RO,Romania
+RUS,2024,79.3421267068262,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),RU,Russian Federation
+RWA,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),RW,Rwanda
+WSM,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),WS,Samoa
+SMR,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),SM,San Marino
+STP,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),ST,Sao Tome and Principe
+SAU,2024,78.8409517231945,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),SA,Saudi Arabia
+SEN,2024,76.4609257473503,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),SN,Senegal
+SRB,2024,83.2544458500274,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),RS,Serbia
+SYC,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),SC,Seychelles
+SLE,2024,38.6205210606339,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),SL,Sierra Leone
+SGP,2024,97.9718288419762,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),SG,Singapore
+SXM,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),SX,Sint Maarten (Dutch part)
+SVK,2024,92.2151184719611,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),SK,Slovak Republic
+SVN,2024,98.7472573239817,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),SI,Slovenia
+SLB,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),SB,Solomon Islands
+SOM,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),SO,"Somalia, Fed. Rep."
+ZAF,2024,81.1259662052011,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),ZA,South Africa
+SSD,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),SS,South Sudan
+ESP,2024,98.3807416463989,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),ES,Spain
+LKA,2024,81.6921293527248,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),LK,Sri Lanka
+KNA,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),KN,St. Kitts and Nevis
+LCA,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),LC,St. Lucia
+MAF,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),MF,St. Martin (French part)
+VCT,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),VC,St. Vincent and the Grenadines
+SDN,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),SD,Sudan
+SUR,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),SR,Suriname
+SWE,2024,98.5654945145745,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),SE,Sweden
+CHE,2024,98.412309687795,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),CH,Switzerland
+SYR,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),SY,Syrian Arab Republic
+TJK,2024,54.5193771390539,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),TJ,Tajikistan
+TZA,2024,59.8275253090773,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),TZ,Tanzania
+THA,2024,91.8249814693343,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),TH,Thailand
+TLS,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),TL,Timor-Leste
+TGO,2024,57.4329534151865,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),TG,Togo
+TON,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),TO,Tonga
+TTO,2024,74.5920641469519,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),TT,Trinidad and Tobago
+TUN,2024,37.8444860328559,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),TN,Tunisia
+TUR,2024,81.5545478352063,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),TR,Turkiye
+TKM,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),TM,Turkmenistan
+TCA,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),TC,Turks and Caicos Islands
+TUV,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),TV,Tuvalu
+UGA,2024,72.8273757556063,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),UG,Uganda
+UKR,2024,87.581225854266,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),UA,Ukraine
+ARE,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),AE,United Arab Emirates
+GBR,2024,99.2843092777584,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),GB,United Kingdom
+USA,2024,97.0230983290589,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),US,United States
+URY,2024,73.7451275567861,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),UY,Uruguay
+UZB,2024,59.6583830145186,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),UZ,Uzbekistan
+VUT,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),VU,Vanuatu
+VEN,2024,87.3184627954851,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),VE,"Venezuela, RB"
+VNM,2024,70.5507533567583,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),VN,Viet Nam
+VIR,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),VI,Virgin Islands (U.S.)
+PSE,2024,39.6209836077699,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),PS,West Bank and Gaza
+YEM,2024,,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),YE,"Yemen, Rep."
+ZMB,2024,72.7024245599811,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),ZM,Zambia
+ZWE,2024,49.5216018025126,,,2,FX.OWN.TOTL.ZS,Account ownership at a financial institution or with a mobile-money-service provider (% of population ages 15+),ZW,Zimbabwe
