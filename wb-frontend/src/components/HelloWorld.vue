@@ -16,6 +16,11 @@ interface GdpPerCapitaGrowthTrendRecord {
   growth_trend_percent_per_year: number | null;
 }
 
+interface GdpPerCapitaGrowthAdditiveRecord {
+  'country.value': string;
+  growth_additive: number | null;
+}
+
 interface MapCountryRecord {
   Country: string;
   population: number | null;
@@ -44,12 +49,7 @@ export default defineComponent({
         shapePropertyPath: 'admin',
         shapeDataPath: 'Country',
         dataSource: [
-            { "Country": "China", population: 38332521 },
-            { "Country": "France", population: 19651127 },
-            { "Country": "Russia", population: 3090416 },
-            { "Country": "Kazakhstan", population: 12325210 },
-            { "Country": "Poland", population: 90332521 },
-            { "Country": "Afghanistan", population: 383521 }
+            
         ] as MapCountryRecord[],
         tooltipSettings: {
             visible: true,
@@ -227,6 +227,57 @@ export default defineComponent({
           );
         });
     },
+    getGdpPerCapitaGrowthAdditive(
+      startYear: number,
+      endYear: number,
+      indicator_code: string,
+    ): void {
+      axios
+        .get<{ get_gdp_per_capita_growth_additive: GdpPerCapitaGrowthAdditiveRecord[] }>(
+          '/api/get_gdp_per_capita_growth_additive',
+          { params: { startYear, endYear, indicator_code } },
+        )
+        .then(response => {
+          const mapCountries = this.getAllCountriesFromMapNoPrint();
+          const mapCountrySet = new Set(mapCountries);
+          const records = response.data.get_gdp_per_capita_growth_additive;
+          const countriesWithData = new Set(
+            records
+              .filter(
+                (record): record is GdpPerCapitaGrowthAdditiveRecord & {
+                  growth_additive: number;
+                } =>
+                  record.growth_additive !== null &&
+                  Number.isFinite(record.growth_additive),
+              )
+              .map(record => record['country.value'])
+              .filter(country => mapCountrySet.has(country)),
+          );
+          const countriesMissingData = mapCountries.filter(
+            country => !countriesWithData.has(country),
+          );
+
+          console.log(
+            `Nations missing additive indicator data for ${startYear}-${endYear}:`,
+            countriesMissingData,
+          );
+
+          this.dataSource = records
+            .filter(record => mapCountrySet.has(record['country.value']))
+            .map(record => ({
+              Country: record['country.value'],
+              population: record.growth_additive,
+            }));
+        })
+        .catch(error => {
+          console.error(
+            'Failed to get additive indicator change:',
+            axios.isAxiosError(error)
+              ? error.response?.data ?? error.message
+              : error,
+          );
+        });
+    },
   },
 })
 </script>
@@ -237,8 +288,9 @@ export default defineComponent({
     <p>Countries in map: {{ countriesInMap }}</p>
     <button @click="getNonNullDataPercentage">Get Non-Null data percentage</button>
     <p>Non-Null-Data-Percentage: {{ non_null_data_percentage }}</p>
-    <button @click="getGdpPerCapita(startYear, endYear, minimumDataPointsRequired, indicator_code)">Get Metric</button>
+    <button @click="getGdpPerCapita(startYear, endYear, minimumDataPointsRequired, indicator_code)">Get Mean Metric</button>
     <button @click="getGdpPerCapitaGrowthTrend(startYear, endYear, minimumDataPointsRequired, indicator_code)">Get Annualized Metric Growth</button>
+    <button @click="getGdpPerCapitaGrowthAdditive(startYear, endYear, indicator_code)">Get Additive Change Between Start and End Year</button>
     <input type="number" v-model.number="startYear" placeholder="Enter a start year" />
     <input type="number" v-model.number="endYear" placeholder="Enter an end year" />
     <input type="text" v-model="indicator_code" placeholder="Enter an indicator code" />

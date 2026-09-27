@@ -89,6 +89,43 @@ class Global:
             aggregated_data["data_points"] >= minimum_data_points_required
         ].drop(columns="data_points")
 
+    def get_gdp_per_capita_growth_additive(
+        self, startYear, endYear, indicator_code
+    ):
+        if startYear > endYear:
+            raise ValueError("startYear must be less than or equal to endYear")
+
+        data = self.extract_data(indicator_code)
+        df = data[["countryiso3code", "date", "value", "country.value"]]
+        years = [str(year) for year in range(startYear, endYear + 1)]
+        selected_date_range = df[df["date"].astype(str).isin(years)]
+
+        changes = []
+        for country_code, country_data in selected_date_range.groupby(
+            "countryiso3code", sort=False
+        ):
+            valid_data = country_data.loc[country_data["value"].notna()]
+            year_values = valid_data["date"].astype(int)
+            start_values = valid_data.loc[year_values == startYear, "value"]
+            end_values = valid_data.loc[year_values == endYear, "value"]
+            if start_values.empty or end_values.empty:
+                continue
+
+            start_value = start_values.iloc[0]
+            end_value = end_values.iloc[0]
+            changes.append(
+                {
+                    "countryiso3code": country_code,
+                    "country.value": country_data["country.value"].iloc[0],
+                    "growth_additive": end_value - start_value,
+                }
+            )
+
+        return pd.DataFrame.from_records(
+            changes,
+            columns=["countryiso3code", "country.value", "growth_additive"],
+        )
+
     def get_gdp_per_capita_growth_trend(
         self, startYear, endYear, minimum_data_points_required, indicator_code
     ):
