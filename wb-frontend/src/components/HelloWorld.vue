@@ -97,6 +97,17 @@ export default defineComponent({
         (feature: { properties: { admin: string } }) => feature.properties.admin
       );
       return this.countriesInMap
+    },
+    getGdpPerCapita() {
+      axios
+        .get('/api/get_gdp_per_capita')
+        .then(response => {
+          console.log("received response")
+          this.dataSource = response.data.gdp_per_capita;
+        })
+        .catch(error => {
+          console.error('Failed to get non-null data percentage:', error);
+        });
     }
   },
 })
@@ -108,6 +119,9 @@ export default defineComponent({
     <p>Countries in map: {{ countriesInMap }}</p>
     <button @click="getNonNullDataPercentage">Get Non-Null data percentage</button>
     <p>Non-Null-Data-Percentage: {{ non_null_data_percentage }}</p>
+    <button @click="getGdpPerCapita">Get GDP-per-capita</button>
+    <input v-model="startYear" placeholder="Enter a start year" />
+    <input v-model="endYear" placeholder="Enter a end year" />
     <div class='wrapper'>
       <ejs-maps
         :format="format"

@@ -6,6 +6,7 @@ import requests
 class Global:
     def __init__(self): 
         self.non_null_data_percentage = 100
+        self.selectedDateRange = []
 
     def extract_data(self, indicator_code):
         url = f"https://api.worldbank.org/v2/country/all/indicator/{indicator_code}"
@@ -65,3 +66,11 @@ class Global:
         print(f"Percentage of non-null values in 'value': {percentage_non_null:.2f}%")
         self.percentage_non_null = percentage_non_null
         return self.percentage_non_null
+
+    def get_gdp_per_capita(self, startYear, endYear):
+        data = self.extract_data("NY.GDP.PCAP.PP.CD")
+        df = data[['countryiso3code,date,value']]
+        years = list(range(startYear, endYear + 1))
+        selectedDateRange = df[df['date'].isin(years)]
+        return selectedDateRange
+
