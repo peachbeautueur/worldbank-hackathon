@@ -1,3 +1,4 @@
+import math
 from pathlib import Path
 
 import pandas as pd
@@ -6,9 +7,9 @@ import requests
 class Global:
     def __init__(self): 
         self.non_null_data_percentage = 100
+        self.selectedDateRange = []
 
-    def extract_data(self):
-        indicator_code = "NY.GDP.PCAP.PP.CD"
+    def extract_data(self, indicator_code):
         url = f"https://api.worldbank.org/v2/country/all/indicator/{indicator_code}"
         params = {"date": "2000:2026", "format": "json", "per_page": 5000}
         all_records = []
@@ -52,18 +53,126 @@ class Global:
             f"to {csv_path}"
         )
         data
-
         if "value" not in data.columns:
             raise KeyError("Column 'value' not found in DataFrame.")
+        return data
 
+    def get_non_null_data_percentage(self):
+        data = self.extract_data("NY.GDP.PCAP.PP.CD")
         total_count = len(data)
         non_null_count = data["value"].notnull().sum()
         percentage_non_null = (
             (non_null_count / total_count) * 100 if total_count else 0.0
         )
         print(f"Percentage of non-null values in 'value': {percentage_non_null:.2f}%")
-        return percentage_non_null
+        self.percentage_non_null = percentage_non_null
+        return self.percentage_non_null
 
-    def get_non_null_data_percentage(self):
-        self.non_null_data_percentage = self.extract_data()
-        return self.non_null_data_percentage
+    def get_gdp_per_capita(
+        self, startYear, endYear, minimum_data_points_required, indicator_code
+    ):
+        data = self.extract_data(indicator_code)
+        df = data[["countryiso3code", "date", "value", "country.value"]]
+        years = [str(year) for year in range(startYear, endYear + 1)]
+        selectedDateRange = df[df['date'].isin(years)]
+
+        aggregated_data = (
+            selectedDateRange.groupby("countryiso3code", as_index=False)
+            .agg(
+                value=("value", "mean"),
+                data_points=("value", "count"),
+                country_value=("country.value", "first"),
+            )
+            .rename(columns={"country_value": "country.value"})
+        )
+        return aggregated_data.loc[
+            aggregated_data["data_points"] >= minimum_data_points_required
+        ].drop(columns="data_points")
+
+    def get_gdp_per_capita_growth_additive(
+        self, startYear, endYear, indicator_code
+    ):
+        if startYear > endYear:
+            raise ValueError("startYear must be less than or equal to endYear")
+
+        data = self.extract_data(indicator_code)
+        df = data[["countryiso3code", "date", "value", "country.value"]]
+        years = [str(year) for year in range(startYear, endYear + 1)]
+        selected_date_range = df[df["date"].astype(str).isin(years)]
+
+        changes = []
+        for country_code, country_data in selected_date_range.groupby(
+            "countryiso3code", sort=False
+        ):
+            valid_data = country_data.loc[country_data["value"].notna()]
+            year_values = valid_data["date"].astype(int)
+            start_values = valid_data.loc[year_values == startYear, "value"]
+            end_values = valid_data.loc[year_values == endYear, "value"]
+            if start_values.empty or end_values.empty:
+                continue
+
+            start_value = start_values.iloc[0]
+            end_value = end_values.iloc[0]
+            changes.append(
+                {
+                    "countryiso3code": country_code,
+                    "country.value": country_data["country.value"].iloc[0],
+                    "growth_additive": end_value - start_value,
+                }
+            )
+
+        return pd.DataFrame.from_records(
+            changes,
+            columns=["countryiso3code", "country.value", "growth_additive"],
+        )
+
+    def get_gdp_per_capita_growth_trend(
+        self, startYear, endYear, minimum_data_points_required, indicator_code
+    ):
+        data = self.extract_data(indicator_code)
+        df = data[["countryiso3code", "date", "value", "country.value"]]
+        years = [str(year) for year in range(startYear, endYear + 1)]
+        selectedDateRange = df[df['date'].isin(years)]
+
+        trends = []
+        for country_code, country_data in selectedDateRange.groupby(
+            "countryiso3code", sort=False
+        ):
+            valid_data = country_data.loc[
+                country_data["value"].notna() & (country_data["value"] > 0)
+            ]
+            year_values = [int(year) for year in valid_data["date"]]
+            log_gdp_values = [
+                math.log(float(value)) for value in valid_data["value"]
+            ]
+
+            annualized_growth_percent = float("nan")
+            if len(year_values) >= minimum_data_points_required:
+                mean_year = sum(year_values) / len(year_values)
+                mean_log_gdp = sum(log_gdp_values) / len(log_gdp_values)
+                year_variance = sum(
+                    (year - mean_year) ** 2 for year in year_values
+                )
+                if year_variance > 0:
+                    slope = sum(
+                        (year - mean_year) * (log_gdp - mean_log_gdp)
+                        for year, log_gdp in zip(year_values, log_gdp_values)
+                    ) / year_variance
+                    annualized_growth_percent = math.expm1(slope) * 100
+
+            trends.append(
+                {
+                    "countryiso3code": country_code,
+                    "country.value": country_data["country.value"].iloc[0],
+                    "growth_trend_percent_per_year": annualized_growth_percent,
+                }
+            )
+
+        return pd.DataFrame.from_records(
+            trends,
+            columns=[
+                "countryiso3code",
+                "country.value",
+                "growth_trend_percent_per_year",
+            ],
+        )

@@ -11,6 +11,7 @@
     "type-check": "vue-tsc --build"
   },
   "dependencies": {
+    "@syncfusion/ej2-vue-maps": "^34.2.8",
     "axios": "^1.20.0",
     "vue": "^3.5.42"
   },
